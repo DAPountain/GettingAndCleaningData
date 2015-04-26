@@ -96,7 +96,7 @@ finalData <- arrange(finalData, subject, activityId)
 
 # names(finalData)
 # write the output file
-write.table( finalData, file="./finalData.txt", row.names=FALSE)
+write.table( finalData, file="./fullData.txt", row.names=FALSE)
 
 #####################################
 #  5) From the data set in step 4, creates a second, independent tidy data set with the average of 
@@ -104,4 +104,6 @@ write.table( finalData, file="./finalData.txt", row.names=FALSE)
 #####################################
 grouping<-group_by(finalData,subject,activityDesc)
 grouped_data <- summarise_each(grouping,funs(mean))
+write.table( grouped_data, file="./finalData.txt", row.names=FALSE)
+
 
